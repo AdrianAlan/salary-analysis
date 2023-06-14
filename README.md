@@ -5,7 +5,7 @@ This repository contains the data and training scripts to fit the _Salary Estima
 ## Data
 The source data comes from several places. The salary survey data comes from [levels.fyi](https://www.levels.fyi/js/salaryData.json). While the _cost of living index 2022_ and _cost of living index by state 2022_ are from [Kaggle](https://www.kaggle.com/datasets/ankanhore545/cost-of-living-index-2022) and [World Population Review (WPR)](https://worldpopulationreview.com/state-rankings/cost-of-living-index-by-state) respectively.
 
-#### Experimental data
+### Experimental data
 | variable      | definition                                            | source                     |
 | ------------- | ----------------------------------------------------- | -------------------------- |
 | timestamp     | Survey time                                           | levels |
@@ -25,25 +25,30 @@ The source data comes from several places. The salary survey data comes from [le
 ##Methods and Results
 The experimental section explores two problems: estimating the expectation and estimating the range
 
-#### Expectation
-  
-| Method | MAE | MAPE | MEDAE | MSE | R2 |
-| --------------- | ----------------------------- | -------------------------- | ------------- | ----------------------------- | -------------------------- |
-|Linear Regression | 0.403 | 0.083 | 0.331 | 0.270 | 0.402 |
-|Ridge Regression  | 0.403 | 0.083 | 0.331 | 0.270 | 0.402 |
-|Lasso Regression          | 0.403 | 0.083 | 0.328 | 0.270 | 0.402 |
-|Elastic Net Regression    | 0.403 | 0.083 | 0.330 | 0.270 | 0.402 |
-|Bayesian Ridge Regression | 0.403 | 0.083 | 0.331 | 0.270 | 0.402 |
-|Decision Tree Regression  | 0.351 | 0.072 | 0.287 | 0.230 | 0.550 |
-|Random Forest Regression  | 0.349 | 0.071 | 0.286 | 0.200 | 0.558 |
+### Results: Regressing Expectation
 
-#### Range
+|                       |    R2 |   MSE |   MAE |   MPL |   MAPE |   MEDAE | NAME                                    |
+|:----------------------|------:|------:|------:|------:|-------:|--------:|:----------------------------------------|
+| LinearRegression      | 0.402 | 0.27  | 0.403 | 0.202 |  0.083 |   0.331 | hot-busy-quetzal-of-sorcery             |
+| Ridge                 | 0.402 | 0.27  | 0.403 | 0.202 |  0.083 |   0.331 | gigantic-mighty-ammonite-of-wholeness   |
+| Lasso                 | 0.402 | 0.27  | 0.403 | 0.201 |  0.083 |   0.328 | curly-obedient-dingo-of-feminism        |
+| ElasticNet            | 0.402 | 0.27  | 0.403 | 0.202 |  0.083 |   0.33  | glistening-arrogant-mushroom-of-passion |
+| BayesianRidge         | 0.402 | 0.27  | 0.403 | 0.202 |  0.083 |   0.331 | flawless-guppy-of-sudden-will           |
+| DecisionTreeRegressor | 0.55  | 0.203 | 0.351 | 0.176 |  0.072 |   0.287 | placid-prophetic-seahorse-of-endeavor   |
+| RandomForestRegressor | 0.558 | 0.2   | 0.349 | 0.174 |  0.071 |   0.286 | benevolent-eggplant-bloodhound-of-pizza |
 
-| Method | Quantile | MPL |
-| ------ | -------- | --- |
-| Quantile Regression | 0.25 | 0.218 |
-| | 0.75 | 0.192 |
-| Gradient Boosting Regression | 0.25 | 0.160 |
-| | 0.75 | 0.154 |
+### Results: Range Estimation
 
-##Usage Instructions
+#### 0.25 Percentile Results:
+|                           |     R2 |   MSE |   MAE |   MPL |   MAPE |   MEDAE | NAME                                |
+|:--------------------------|-------:|------:|------:|------:|-------:|--------:|:------------------------------------|
+| QuantileRegressor         | -0.261 | 0.569 | 0.608 | 0.218 |  0.121 |   0.536 | fair-victorious-nuthatch-of-inquire |
+| GradientBoostingRegressor |  0.223 | 0.351 | 0.476 | 0.16  |  0.092 |   0.408 | greedy-cocky-bison-of-rain          |
+
+#### 0.75 Percentile Results:
+|                           |     R2 |   MSE |   MAE |   MPL |   MAPE |   MEDAE | NAME                                |
+|:--------------------------|-------:|------:|------:|------:|-------:|--------:|:------------------------------------|
+| QuantileRegressor         | -0.395 | 0.63  | 0.595 | 0.192 |  0.133 |   0.463 | hot-kickass-guppy-of-essence        |
+| GradientBoostingRegressor |  0.126 | 0.395 | 0.486 | 0.154 |  0.107 |   0.4   | misty-warm-nightingale-of-lightning |
+
+## Usage Instructions

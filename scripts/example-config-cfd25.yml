@@ -1,0 +1,31 @@
+---
+dataset: '../data/experimental_data.csv'
+track:
+  log_mlflow: False
+  mlflow_username: ''
+  mlflow_password: ''
+  mlflow_exp_name: ''
+  mlflow_tracking: ''
+features:
+  yoe: True
+  yac: True
+  gender: True
+  location: 5
+details:
+  cv: 5
+  jobs: -1
+  reg: False
+  quantile: 0.25
+experiments:
+  - {model: QuantileRegressor,
+     params: {"model__solver": ["highs"], "model__alpha": [0.12, 0.24], "model__quantile": [0.25]}}
+  - {model: GradientBoostingRegressor,
+     params: {"model__learning_rate": [0.01],
+              "model__loss": ["quantile"],
+              "model__alpha": [0.25],
+              "model__n_estimators": [100],
+              "model__min_samples_leaf": [8, 16],
+              "model__min_samples_split": [8],
+              "model__max_depth": [3]
+             }
+    }

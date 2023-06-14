@@ -1,0 +1,25 @@
+---
+dataset: '../data/experimental_data.csv'
+track:
+  log_mlflow: False
+  mlflow_username: ''
+  mlflow_password: ''
+  mlflow_exp_name: ''
+  mlflow_tracking: ''
+features:
+  yoe: True
+  yac: True
+  gender: True
+  location: 5
+details:
+  cv: 5
+  jobs: -1
+  reg: True
+experiments:
+  - {model: LinearRegression, params: {"model__fit_intercept": [True, False]}}
+  - {model: Ridge, params: {"model__fit_intercept": [True, False], "model__alpha": [0.01, 0.1, 1, 10]}}
+  - {model: Lasso, params: {"model__fit_intercept": [True, False], "model__alpha": [0.01, 0.1, 1, 10]}}
+  - {model: ElasticNet, params: {"model__fit_intercept": [True, False], "model__alpha": [0.01, 0.1, 1, 10], "model__l1_ratio": [0.1, 0.5, 0.9]}}
+  - {model: BayesianRidge, params: {"model__n_iter": [300, 600, 900]}}
+  - {model: DecisionTreeRegressor, params: {"model__max_depth": [6, 9], 'model__min_samples_leaf': [10, 25, 30], 'model__criterion': ['squared_error', 'poisson']}}
+  - {model: RandomForestRegressor, params: {"model__max_depth": [6, 9], 'model__min_samples_leaf': [10, 25, 30], 'model__criterion': ['squared_error', 'poisson'], 'model__n_estimators': [100]}}
