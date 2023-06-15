@@ -170,7 +170,7 @@ def main(dataset: str = None,
         details['name'] = name
         df = df._append(pd.Series(details, name=experiment['model']))
 
-        with open("../models/{}.pkl".format(name), "wb") as f:
+        with open("./models/{}.pkl".format(name), "wb") as f:
             pickle.dump(result.best_estimator_, f)
 
     df.columns = df.columns.str.upper()

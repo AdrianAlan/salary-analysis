@@ -1,5 +1,5 @@
 ---
-dataset: '../data/experimental_data.csv'
+dataset: './data/experimental_data.csv'
 track:
   log_mlflow: False
   mlflow_username: ''

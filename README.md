@@ -2,8 +2,22 @@
 
 This repository contains the data and training scripts to fit the _Salary Estimator_ for software engineers and data scientists. To download the data, go to the `data` directory, where you can download the json files used in the project.
 
+## Usage Instructions
+
+Setup the environment, and install the requierments.
+```
+conda create -n "project-salary" python=3.11 ipython
+conda activate project-salary
+conda install -r requirements.txt
+```
+
+After downloading the data and running the notebook to generate `experimental_data.csv`, run the experiments, .g.:
+```
+python scripts/experiments.py scripts/example-config-exp.yml
+```
+
 ## Data
-The source data comes from several places. The salary survey data comes from [levels.fyi](https://www.levels.fyi/js/salaryData.json). While the _cost of living index 2022_ and _cost of living index by state 2022_ are from [Kaggle](https://www.kaggle.com/datasets/ankanhore545/cost-of-living-index-2022) and [World Population Review (WPR)](https://worldpopulationreview.com/state-rankings/cost-of-living-index-by-state) respectively.
+The source data comes from several places. The salary survey data comes from [levels.fyi](https://www.levels.fyi/js/salaryData.json). While the _cost of living index 2022_ and _cost of living index by state 2022_ are from [Kaggle](https://www.kaggle.com/datasets/ankanhore545/cost-of-living-index-2022) and [World Population Review (WPR)](https://worldpopulationreview.com/state-rankings/cost-of-living-index-by-state) respectively. You can download the later two after signing in.
 
 ### Experimental data
 | variable      | definition                                            | source                     |
@@ -22,7 +36,7 @@ The source data comes from several places. The salary survey data comes from [le
 | gender        | Female/not-Female                                     | levels |
 | coli          | Cost of living index                                  | Kaggle and WPR |       
 
-##Methods and Results
+## Methods and Results
 The experimental section explores two problems: estimating the expectation and estimating the range
 
 ### Results: Regressing Expectation
@@ -51,4 +65,4 @@ The experimental section explores two problems: estimating the expectation and e
 | QuantileRegressor         | -0.395 | 0.63  | 0.595 | 0.192 |  0.133 |   0.463 | hot-kickass-guppy-of-essence        |
 | GradientBoostingRegressor |  0.126 | 0.395 | 0.486 | 0.154 |  0.107 |   0.4   | misty-warm-nightingale-of-lightning |
 
-## Usage Instructions
+
