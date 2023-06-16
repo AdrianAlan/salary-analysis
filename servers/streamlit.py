@@ -3,10 +3,9 @@ import requests as rq
 import json
 import streamlit as st
 import numpy as np
-import plotly.graph_objects as go
-import plotly.figure_factory as ff
 import numpy as np
 import matplotlib.pyplot as plt
+
 from matplotlib.collections import LineCollection
 
 
