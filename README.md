@@ -1,6 +1,6 @@
 # Salary Estimator
 
-This repository contains the data and training scripts to fit the _Salary Estimator_ for software engineers and data scientists. To download the data, go to the `data` directory, where you can download the json files used in the project.
+This repository contains the data and training scripts to fit the _Salary Estimator_ for software engineers and data scientists. The app is available [HERE](https://salary-estimation.streamlit.app/).
 
 ## Usage Instructions
 
