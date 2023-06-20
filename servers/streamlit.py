@@ -56,7 +56,7 @@ if prediction_button:
 
     # Draw a horizontal scale
     plt.hlines(0, 0, 100)
-    plt.eventplot([qlow, ghigh], orientation='horizontal', colors='w')
+    plt.eventplot([qlow, qhigh], orientation='horizontal', colors='w')
     plt.text(qlow, 1.1, '25% ', ha='right', va='center', color='w')
     plt.text(qhigh, 1.1, '75% ', ha='right', va='center', color='w')
    
